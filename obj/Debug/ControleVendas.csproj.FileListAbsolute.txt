@@ -31,3 +31,4 @@ C:\Users\cmdtj\OneDrive\Área de Trabalho\Apps\EstoqueMVC\obj\Debug\ControleVend
 C:\Users\cmdtj\OneDrive\Área de Trabalho\Apps\EstoqueMVC\obj\Debug\ControleVendas.csproj.CopyComplete
 C:\Users\cmdtj\OneDrive\Área de Trabalho\Apps\EstoqueMVC\obj\Debug\ControleVendas.exe
 C:\Users\cmdtj\OneDrive\Área de Trabalho\Apps\EstoqueMVC\obj\Debug\ControleVendas.pdb
+C:\Users\cmdtj\OneDrive\Área de Trabalho\Apps\EstoqueMVC\obj\Debug\ControleVendas.br.com.projeto.view.FrmFuncionarios.resources
