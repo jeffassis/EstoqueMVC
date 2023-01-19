@@ -12,17 +12,17 @@ using System.Windows.Forms;
 
 namespace ControleVendas.br.com.projeto.view
 {
-    public partial class FrmFuncionarios : Form
+    public partial class FrmFornecedor : Form
     {
-        public FrmFuncionarios()
+        public FrmFornecedor()
         {
             InitializeComponent();
         }
 
-        private void FrmFuncionarios_Load(object sender, EventArgs e)
+        private void FrmFornecedor_Load(object sender, EventArgs e)
         {
-            FuncionarioDAO dao = new FuncionarioDAO();
-            Grid.DataSource = dao.ListarFuncionario();
+            FornecedorDAO dao = new FornecedorDAO();
+            Grid.DataSource = dao.ListarFornecedor();
         }
 
         private void BtnNovo_Click(object sender, EventArgs e)
@@ -32,11 +32,10 @@ namespace ControleVendas.br.com.projeto.view
 
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            Funcionarios obj = new Funcionarios
+            Fornecedor obj = new Fornecedor
             {
                 Nome = txtNome.Text,
-                Rg = txtRg.Text,
-                Cpf = txtCpf.Text,
+                Cnpj = txtCnpj.Text,
                 Email = txtEmail.Text,
                 Telefone = txtTelefone.Text,
                 Celular = txtCelular.Text,
@@ -46,25 +45,21 @@ namespace ControleVendas.br.com.projeto.view
                 Complemento = txtComplemento.Text,
                 Bairro = txtBairro.Text,
                 Cidade = txtCidade.Text,
-                Estado = cbUf.SelectedItem.ToString(),
-                Senha = txtSenha.Text,
-                Cargo = CbCargo.SelectedItem.ToString(),
-                Nivel = CbNivel.SelectedItem.ToString()
+                Estado = cbUf.SelectedItem.ToString()
             };
-            FuncionarioDAO dao = new FuncionarioDAO();
-            dao.CadastrarFuncionario(obj);
+            FornecedorDAO dao = new FornecedorDAO();
+            dao.CadastrarFornecedor(obj);
             new Helpers().LimparTela(this);
-            Grid.DataSource = dao.ListarFuncionario();
+            Grid.DataSource = dao.ListarFornecedor();
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
-            Funcionarios obj = new Funcionarios
+            Fornecedor obj = new Fornecedor
             {
                 Codigo = int.Parse(txtCodigo.Text),
                 Nome = txtNome.Text,
-                Rg = txtRg.Text,
-                Cpf = txtCpf.Text,
+                Cnpj = txtCnpj.Text,
                 Email = txtEmail.Text,
                 Telefone = txtTelefone.Text,
                 Celular = txtCelular.Text,
@@ -74,74 +69,67 @@ namespace ControleVendas.br.com.projeto.view
                 Complemento = txtComplemento.Text,
                 Bairro = txtBairro.Text,
                 Cidade = txtCidade.Text,
-                Estado = cbUf.SelectedItem.ToString(),
-                Senha = txtSenha.Text,
-                Cargo = CbCargo.SelectedItem.ToString(),
-                Nivel = CbNivel.SelectedItem.ToString()
+                Estado = cbUf.SelectedItem.ToString()
             };
-            FuncionarioDAO dao = new FuncionarioDAO();
-            dao.CadastrarFuncionario(obj);
+            FornecedorDAO dao = new FornecedorDAO();
+            dao.AlterarFornecedor(obj);
             new Helpers().LimparTela(this);
-            Grid.DataSource = dao.ListarFuncionario();
+            Grid.DataSource = dao.ListarFornecedor();
         }
 
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
-            Funcionarios obj = new Funcionarios
+            Fornecedor obj = new Fornecedor
             {
                 Codigo = int.Parse(txtCodigo.Text)
             };
-            FuncionarioDAO dao = new FuncionarioDAO();
-            dao.ExcluirFuncionario(obj);
+            FornecedorDAO dao = new FornecedorDAO();
+            dao.ExcluirFornecedor(obj);
             new Helpers().LimparTela(this);
-            Grid.DataSource = dao.ListarFuncionario();
+            Grid.DataSource = dao.ListarFornecedor();
         }
 
         private void Grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtCodigo.Text = Grid.CurrentRow.Cells[0].Value.ToString();
             txtNome.Text = Grid.CurrentRow.Cells[1].Value.ToString();
-            txtRg.Text = Grid.CurrentRow.Cells[2].Value.ToString();
-            txtCpf.Text = Grid.CurrentRow.Cells[3].Value.ToString();
-            txtEmail.Text = Grid.CurrentRow.Cells[4].Value.ToString();
-            txtTelefone.Text = Grid.CurrentRow.Cells[5].Value.ToString();
-            txtCelular.Text = Grid.CurrentRow.Cells[6].Value.ToString();
-            txtCep.Text = Grid.CurrentRow.Cells[7].Value.ToString();
-            txtEndereco.Text = Grid.CurrentRow.Cells[8].Value.ToString();
-            txtNumero.Text = Grid.CurrentRow.Cells[9].Value.ToString();
-            txtComplemento.Text = Grid.CurrentRow.Cells[10].Value.ToString();
-            txtBairro.Text = Grid.CurrentRow.Cells[11].Value.ToString();
-            txtCidade.Text = Grid.CurrentRow.Cells[12].Value.ToString();
-            cbUf.Text = Grid.CurrentRow.Cells[13].Value.ToString();
-            txtSenha.Text = Grid.CurrentRow.Cells[14].Value.ToString();
-            CbCargo.Text = Grid.CurrentRow.Cells[15].Value.ToString();
-            CbNivel.Text = Grid.CurrentRow.Cells[16].Value.ToString();
+            txtCnpj.Text = Grid.CurrentRow.Cells[2].Value.ToString();
+            txtEmail.Text = Grid.CurrentRow.Cells[3].Value.ToString();
+            txtTelefone.Text = Grid.CurrentRow.Cells[4].Value.ToString();
+            txtCelular.Text = Grid.CurrentRow.Cells[5].Value.ToString();
+            txtCep.Text = Grid.CurrentRow.Cells[6].Value.ToString();
+            txtEndereco.Text = Grid.CurrentRow.Cells[7].Value.ToString();
+            txtNumero.Text = Grid.CurrentRow.Cells[8].Value.ToString();
+            txtComplemento.Text = Grid.CurrentRow.Cells[9].Value.ToString();
+            txtBairro.Text = Grid.CurrentRow.Cells[10].Value.ToString();
+            txtCidade.Text = Grid.CurrentRow.Cells[11].Value.ToString();
+            cbUf.Text = Grid.CurrentRow.Cells[12].Value.ToString();
 
             // Alterar para a guia de Dados Clientes
-            TabFuncionario.SelectedTab = TabDadosPessoais;
+            TabFornecedor.SelectedTab = TabDadosPessoais;
         }
 
         private void BtnPesquisar_Click(object sender, EventArgs e)
         {
             string nome = TxtBuscarNome.Text;
 
-            FuncionarioDAO dao = new FuncionarioDAO();
+            FornecedorDAO dao = new FornecedorDAO();
             Grid.DataSource = dao.BuscarPorNome(nome);
 
             if (Grid.Rows.Count == 0 || TxtBuscarNome.Text == string.Empty)
             {
-                MessageBox.Show("Funcionário nao encontrado!");
-                Grid.DataSource = dao.ListarFuncionario();
+                MessageBox.Show("Fornecedor nao encontrado!");
+                Grid.DataSource = dao.ListarFornecedor();
             }
         }
 
-        private void TxtBuscarNome_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtBuscarNome_TextChanged(object sender, EventArgs e)
         {
-            string nome = "%" + TxtBuscarNome.Text + "%";
+            string nome = "%"+ TxtBuscarNome.Text + "%";
 
-            FuncionarioDAO dao = new FuncionarioDAO();
+            FornecedorDAO dao = new FornecedorDAO();
 
-            Grid.DataSource = dao.ListarFuncionarioPorNome(nome);
+            Grid.DataSource = dao.ListarFornecedorPorNome(nome);
         }
 
         private void BtnCep_Click(object sender, EventArgs e)

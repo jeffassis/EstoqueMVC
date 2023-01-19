@@ -32,3 +32,5 @@ C:\Users\cmdtj\OneDrive\Área de Trabalho\Apps\EstoqueMVC\obj\Debug\ControleVend
 C:\Users\cmdtj\OneDrive\Área de Trabalho\Apps\EstoqueMVC\obj\Debug\ControleVendas.exe
 C:\Users\cmdtj\OneDrive\Área de Trabalho\Apps\EstoqueMVC\obj\Debug\ControleVendas.pdb
 C:\Users\cmdtj\OneDrive\Área de Trabalho\Apps\EstoqueMVC\obj\Debug\ControleVendas.br.com.projeto.view.FrmFuncionarios.resources
+C:\Users\cmdtj\OneDrive\Área de Trabalho\Apps\EstoqueMVC\obj\Debug\ControleVendas.br.com.projeto.view.FrmFornecedor.resources
+C:\Users\cmdtj\OneDrive\Área de Trabalho\Apps\EstoqueMVC\obj\Debug\ControleVendas.br.com.projeto.view.FrmProduto.resources

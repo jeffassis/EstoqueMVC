@@ -86,15 +86,25 @@
   <ItemGroup>
     <Compile Include="br.com.projeto.conexao\ConnectionFactory.cs" />
     <Compile Include="br.com.projeto.dao\ClienteDAO.cs" />
+    <Compile Include="br.com.projeto.dao\FornecedorDAO.cs" />
     <Compile Include="br.com.projeto.dao\FuncionarioDAO.cs" />
+    <Compile Include="br.com.projeto.dao\ProdutoDAO.cs" />
     <Compile Include="br.com.projeto.model\Cliente.cs" />
+    <Compile Include="br.com.projeto.model\Fornecedor.cs" />
     <Compile Include="br.com.projeto.model\Funcionarios.cs" />
     <Compile Include="br.com.projeto.model\Helpers.cs" />
+    <Compile Include="br.com.projeto.model\Produto.cs" />
     <Compile Include="br.com.projeto.view\FrmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="br.com.projeto.view\FrmClientes.Designer.cs">
       <DependentUpon>FrmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.projeto.view\FrmFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.projeto.view\FrmFornecedor.Designer.cs">
+      <DependentUpon>FrmFornecedor.cs</DependentUpon>
     </Compile>
     <Compile Include="br.com.projeto.view\FrmFuncionarios.cs">
       <SubType>Form</SubType>
@@ -102,13 +112,25 @@
     <Compile Include="br.com.projeto.view\FrmFuncionarios.Designer.cs">
       <DependentUpon>FrmFuncionarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="br.com.projeto.view\FrmProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.projeto.view\FrmProduto.Designer.cs">
+      <DependentUpon>FrmProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="br.com.projeto.view\FrmClientes.resx">
       <DependentUpon>FrmClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="br.com.projeto.view\FrmFornecedor.resx">
+      <DependentUpon>FrmFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="br.com.projeto.view\FrmFuncionarios.resx">
       <DependentUpon>FrmFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.projeto.view\FrmProduto.resx">
+      <DependentUpon>FrmProduto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
