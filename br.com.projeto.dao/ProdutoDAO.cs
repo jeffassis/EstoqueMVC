@@ -158,5 +158,41 @@ namespace ControleVendas.br.com.projeto.dao
             }
         }
 
+        public Produto RetornaProdutoPorId(int id)
+        {
+            try
+            {
+                Produto obj = new Produto();
+                string sql = "SELECT * FROM tb_produto WHERE id_produto = @id";
+                MySqlCommand cmd = new MySqlCommand(sql, vcon);
+                cmd.Parameters.AddWithValue("@id", id);
+                vcon.Open();
+                MySqlDataReader read = cmd.ExecuteReader();
+                if (read.Read())
+                {
+                    obj.Id_produto = read.GetInt32("id_produto");
+                    obj.Descricao = read.GetString("descricao");
+                    obj.Preco = read.GetDecimal("preco");
+                    obj.QtdEstoque = read.GetInt32("qtd_estoque");
+                    vcon.Close();
+                    vcon.Dispose();
+                    return obj;
+                }
+                else
+                {
+                    MessageBox.Show("Produto não encontrado", "Erro ao consultar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    vcon.Close();
+                    vcon.Dispose();
+                    return null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Aconteceu um erro" + ex);
+                return null;
+            }
+        }
+
     }
 }

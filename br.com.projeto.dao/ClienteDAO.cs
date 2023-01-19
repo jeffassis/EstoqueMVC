@@ -54,7 +54,6 @@ namespace ControleVendas.br.com.projeto.dao
             }
         }
 
-
         public void AlterarCliente(Cliente obj)
         {
             try
@@ -90,7 +89,6 @@ namespace ControleVendas.br.com.projeto.dao
             }
         }
 
-
         public void ExcluirCliente(Cliente obj)
         {
             try
@@ -113,7 +111,6 @@ namespace ControleVendas.br.com.projeto.dao
             }
         }
 
-
         public DataTable ListarClientes()
         {
             try
@@ -135,7 +132,6 @@ namespace ControleVendas.br.com.projeto.dao
                 return null;
             }
         }
-
 
         public DataTable BuscarClientePorNome(string nome)
         {
@@ -160,7 +156,6 @@ namespace ControleVendas.br.com.projeto.dao
             }
         }
 
-
         public DataTable ListarClientesPorNome(string nome)
         {
             try
@@ -180,6 +175,38 @@ namespace ControleVendas.br.com.projeto.dao
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao executar o comando sql: " + ex);
+                return null;
+            }
+        }
+    
+        public Cliente RetornaClientePorCPF(string cpf)
+        {
+            try
+            {
+                Cliente obj = new Cliente();
+                string sql = "SELECT * FROM tb_cliente WHERE cpf = @cpf";
+                MySqlCommand cmd = new MySqlCommand(sql, vcon);
+                cmd.Parameters.AddWithValue("@cpf", cpf);
+                vcon.Open();
+                MySqlDataReader read = cmd.ExecuteReader();
+
+                if (read.Read())
+                {
+                    obj.Codigo = read.GetInt32("id_cliente");
+                    obj.Nome = read.GetString("nome");
+
+                    return obj;
+                }
+                else
+                {
+                    MessageBox.Show("Cliente não encontrado","Erro ao consultar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Aconteceu um erro"+ ex);
                 return null;
             }
         }
