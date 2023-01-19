@@ -33,6 +33,7 @@ namespace ControleVendas.br.com.projeto.view
             this.label1 = new System.Windows.Forms.Label();
             this.TabClientes = new System.Windows.Forms.TabControl();
             this.TabDadosPessoais = new System.Windows.Forms.TabPage();
+            this.BtnCep = new System.Windows.Forms.Button();
             this.cbUf = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtCidade = new System.Windows.Forms.TextBox();
@@ -70,7 +71,6 @@ namespace ControleVendas.br.com.projeto.view
             this.BtnSalvar = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnExcluir = new System.Windows.Forms.Button();
-            this.BtnCep = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.TabClientes.SuspendLayout();
             this.TabDadosPessoais.SuspendLayout();
@@ -147,6 +147,18 @@ namespace ControleVendas.br.com.projeto.view
             this.TabDadosPessoais.TabIndex = 0;
             this.TabDadosPessoais.Text = "Dados Pessoais";
             this.TabDadosPessoais.UseVisualStyleBackColor = true;
+            // 
+            // BtnCep
+            // 
+            this.BtnCep.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BtnCep.ForeColor = System.Drawing.Color.White;
+            this.BtnCep.Location = new System.Drawing.Point(333, 135);
+            this.BtnCep.Name = "BtnCep";
+            this.BtnCep.Size = new System.Drawing.Size(80, 28);
+            this.BtnCep.TabIndex = 6;
+            this.BtnCep.Text = "Pesquisar";
+            this.BtnCep.UseVisualStyleBackColor = false;
+            this.BtnCep.Click += new System.EventHandler(this.BtnCep_Click);
             // 
             // cbUf
             // 
@@ -498,18 +510,6 @@ namespace ControleVendas.br.com.projeto.view
             this.BtnExcluir.UseVisualStyleBackColor = false;
             this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
-            // BtnCep
-            // 
-            this.BtnCep.BackColor = System.Drawing.SystemColors.Highlight;
-            this.BtnCep.ForeColor = System.Drawing.Color.White;
-            this.BtnCep.Location = new System.Drawing.Point(333, 135);
-            this.BtnCep.Name = "BtnCep";
-            this.BtnCep.Size = new System.Drawing.Size(80, 28);
-            this.BtnCep.TabIndex = 6;
-            this.BtnCep.Text = "Pesquisar";
-            this.BtnCep.UseVisualStyleBackColor = false;
-            this.BtnCep.Click += new System.EventHandler(this.BtnCep_Click);
-            // 
             // FrmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -541,9 +541,7 @@ namespace ControleVendas.br.com.projeto.view
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl TabClientes;
         private System.Windows.Forms.TabPage TabDadosPessoais;
-        private System.Windows.Forms.TabPage TabConsulta;
         private System.Windows.Forms.MaskedTextBox txtCpf;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.MaskedTextBox txtRg;
@@ -581,5 +579,7 @@ namespace ControleVendas.br.com.projeto.view
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridView Grid;
         private System.Windows.Forms.Button BtnCep;
+        public System.Windows.Forms.TabControl TabClientes;
+        public System.Windows.Forms.TabPage TabConsulta;
     }
 }

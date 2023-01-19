@@ -104,6 +104,12 @@
     <Compile Include="br.com.projeto.view\FrmClientes.Designer.cs">
       <DependentUpon>FrmClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="br.com.projeto.view\FrmDetalhes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.projeto.view\FrmDetalhes.Designer.cs">
+      <DependentUpon>FrmDetalhes.cs</DependentUpon>
+    </Compile>
     <Compile Include="br.com.projeto.view\FrmFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,24 @@
     </Compile>
     <Compile Include="br.com.projeto.view\FrmFuncionarios.Designer.cs">
       <DependentUpon>FrmFuncionarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.projeto.view\FrmHistorico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.projeto.view\FrmHistorico.Designer.cs">
+      <DependentUpon>FrmHistorico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.projeto.view\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.projeto.view\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="br.com.projeto.view\FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="br.com.projeto.view\FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="br.com.projeto.view\FrmPagamentos.cs">
       <SubType>Form</SubType>
@@ -139,11 +163,23 @@
     <EmbeddedResource Include="br.com.projeto.view\FrmClientes.resx">
       <DependentUpon>FrmClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="br.com.projeto.view\FrmDetalhes.resx">
+      <DependentUpon>FrmDetalhes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="br.com.projeto.view\FrmFornecedor.resx">
       <DependentUpon>FrmFornecedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="br.com.projeto.view\FrmFuncionarios.resx">
       <DependentUpon>FrmFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.projeto.view\FrmHistorico.resx">
+      <DependentUpon>FrmHistorico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.projeto.view\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="br.com.projeto.view\FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="br.com.projeto.view\FrmPagamentos.resx">
       <DependentUpon>FrmPagamentos.cs</DependentUpon>
@@ -162,6 +198,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -177,6 +214,29 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\aluno.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forncedor_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\produto_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\venda_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manutencao_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circular_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carteirinha_20.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

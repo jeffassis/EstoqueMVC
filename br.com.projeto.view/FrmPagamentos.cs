@@ -31,6 +31,10 @@ namespace ControleVendas.br.com.projeto.view
             {
                 decimal v_dinheiro, v_cartao, troco, totalpago, total;
 
+                // variaveis de baixa estoque
+                int qtd_estoque, qtd_comprada, estoque_atualizado;
+                ProdutoDAO dao_produto = new ProdutoDAO();
+
                 v_dinheiro = decimal.Parse(txtDinheiro.Text);
                 v_cartao = decimal.Parse(txtCartao.Text);
                 total = decimal.Parse(txtTotal.Text);
@@ -73,6 +77,12 @@ namespace ControleVendas.br.com.projeto.view
                         item.qtd = int.Parse(linha["Qtd"].ToString());
                         item.Subtotal = decimal.Parse(linha["SubTotal"].ToString());
 
+                        // Baixa do estoque
+                        qtd_estoque = dao_produto.RetornaEstoqueAtual(item.Produto_id);
+                        qtd_comprada = item.qtd;
+                        estoque_atualizado = qtd_estoque - qtd_comprada;
+                        dao_produto.BaixaEstoque(item.Produto_id, estoque_atualizado);
+
                         ItemVendaDAO itemDAO = new ItemVendaDAO();
                         itemDAO.CadastrarItem(item);
                     }
@@ -82,8 +92,7 @@ namespace ControleVendas.br.com.projeto.view
             }
             catch (Exception)
             {
-
-                throw;
+                MessageBox.Show("Não consegue finalizar");
             }
         }
 

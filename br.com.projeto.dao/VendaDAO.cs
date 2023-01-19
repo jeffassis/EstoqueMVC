@@ -3,6 +3,7 @@ using ControleVendas.br.com.projeto.model;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,5 +65,58 @@ namespace ControleVendas.br.com.projeto.dao
                 return 0;
             }
         }
+   
+    
+        public DataTable ListarVendasPorPeriodo(DateTime DtInicial, DateTime DtFinal)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                string sql = @"SELECT v.id_venda, v.data_venda, c.nome, v.total_venda, v.obs
+                               FROM tb_venda as v
+                               INNER JOIN tb_cliente as c ON c.id_cliente=v.cliente_id
+                               WHERE v.data_venda
+                               BETWEEN @data_inicial AND @data_final";
+                MySqlCommand cmd = new MySqlCommand(sql, vcon);
+                cmd.Parameters.AddWithValue("@data_inicial", DtInicial);
+                cmd.Parameters.AddWithValue("@data_final", DtFinal);
+                vcon.Open();
+                cmd.ExecuteNonQuery();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao executar o comando: " + ex);
+                return null;
+            }
+        }
+    
+    
+        public DataTable ListarVendas()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = @"select v.id_venda, v.data_venda, c.nome, v.total_venda, v.obs from tb_venda as v
+                             inner join tb_cliente as c ON v.cliente_id=c.id_cliente";
+                MySqlCommand cmd = new MySqlCommand(sql, vcon);
+                vcon.Open();
+                cmd.ExecuteNonQuery();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+    
     }
 }

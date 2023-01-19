@@ -1,5 +1,6 @@
 ﻿using ControleVendas.br.com.projeto.conexao;
 using ControleVendas.br.com.projeto.model;
+using ControleVendas.br.com.projeto.view;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -187,5 +188,57 @@ namespace ControleVendas.br.com.projeto.dao
                 return null;
             }
         }
+    
+        public bool EfetuarLogin(string email, string senha)
+        {
+            try
+            {
+                string sql = @"SELECT * from tb_funcionario where email=@email and senha=@senha";
+                MySqlCommand cmd = new MySqlCommand(sql, vcon);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@senha", senha);
+                vcon.Open();
+
+                MySqlDataReader read = cmd.ExecuteReader();
+
+                if (read.Read())
+                {
+                    string nivel = read.GetString("nivel");
+                    string nome = read.GetString("nome");
+                    FrmMenu form = new FrmMenu();
+
+                    form.txtUsuario.Text = nome;
+
+                    // Se o nivel for Administrador
+                    if (nivel.Equals("Administrador"))
+                    {
+                        // Abre o sistema com todas as opções
+                        form.Show();
+                    }
+                    else if (nivel.Equals("Vendedor"))
+                    {
+                        // Abre o sistema com perfil personalizado
+                        form.MenuVenda.Visible = false;
+                        form.MenuProduto.Visible = false;
+                        form.MenuConfiguracao.Visible = false;
+
+                        form.Show();
+                    }
+
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Email ou senha incorretos");
+                    return false;
+                }                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Aconteceu o erro: " + ex);
+                return false;
+            }
+        }
+    
     }
 }

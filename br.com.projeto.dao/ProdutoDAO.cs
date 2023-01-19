@@ -194,5 +194,51 @@ namespace ControleVendas.br.com.projeto.dao
             }
         }
 
+
+        public void BaixaEstoque(int idProduto, int qtdEstoque)
+        {
+            try
+            {
+                string sql = "UPDATE tb_produto SET qtd_estoque=@qtd WHERE id_produto=@id";
+                MySqlCommand cmd = new MySqlCommand(sql, vcon);
+                cmd.Parameters.AddWithValue("@qtd", qtdEstoque);
+                cmd.Parameters.AddWithValue("@id", idProduto);
+                vcon.Open();
+                cmd.ExecuteNonQuery();
+                vcon.Close();
+                vcon.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Aconteceu o erro: " + ex);
+                vcon.Close();
+                vcon.Dispose();
+            }
+        }
+
+        public int RetornaEstoqueAtual(int idProduto)
+        {
+            try
+            {
+                int qtd_estoque = 0;
+                string sql = "SELECT qtd_estoque FROM tb_produto WHERE id_produto=@id";
+                MySqlCommand cmd = new MySqlCommand(sql, vcon);
+                cmd.Parameters.AddWithValue("@id", idProduto);
+                vcon.Open();
+
+                MySqlDataReader read = cmd.ExecuteReader();
+                if (read.Read())
+                {
+                    qtd_estoque = read.GetInt32("qtd_estoque");
+                    vcon.Close();
+                }
+                return qtd_estoque;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Aconteceu o erro: " + ex);
+                return 0;
+            }
+        }
     }
 }
