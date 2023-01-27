@@ -204,25 +204,17 @@ namespace ControleVendas.br.com.projeto.dao
                 if (read.Read())
                 {
                     string nivel = read.GetString("nivel");
-                    string nome = read.GetString("nome");
-                    FrmMenu form = new FrmMenu();
-
-                    form.txtUsuario.Text = nome;
+                    string nome = read.GetString("nome");                                     
 
                     // Se o nivel for Administrador
                     if (nivel.Equals("Administrador"))
                     {
                         // Abre o sistema com todas as opções
-                        form.Show();
                     }
                     else if (nivel.Equals("Vendedor"))
                     {
                         // Abre o sistema com perfil personalizado
-                        form.MenuVenda.Visible = false;
-                        form.MenuProduto.Visible = false;
-                        form.MenuConfiguracao.Visible = false;
 
-                        form.Show();
                     }
 
                     return true;

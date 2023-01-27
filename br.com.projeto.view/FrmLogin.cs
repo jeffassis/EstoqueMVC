@@ -13,9 +13,11 @@ namespace ControleVendas.br.com.projeto.view
 {
     public partial class FrmLogin : Form
     {
-        public FrmLogin()
+        readonly FrmMenu form1;
+        public FrmLogin(FrmMenu f)
         {
             InitializeComponent();
+            form1 = f;
         }
 
         private void BtnNovo_Click(object sender, EventArgs e)
@@ -24,7 +26,15 @@ namespace ControleVendas.br.com.projeto.view
             string senha = txtSenha.Text;
 
             FuncionarioDAO dao = new FuncionarioDAO();
-            dao.EfetuarLogin(email, senha);         
+            if (dao.EfetuarLogin(email, senha))
+            {
+                this.Hide();
+            }       
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

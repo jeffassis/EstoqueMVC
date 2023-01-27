@@ -68,6 +68,7 @@ namespace ControleVendas.br.com.projeto.view
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(222, 27);
             this.txtSenha.TabIndex = 31;
+            this.txtSenha.Text = "123";
             // 
             // label3
             // 
@@ -87,6 +88,7 @@ namespace ControleVendas.br.com.projeto.view
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(222, 27);
             this.txtEmail.TabIndex = 29;
+            this.txtEmail.Text = "jeff@";
             // 
             // label2
             // 
@@ -127,6 +129,7 @@ namespace ControleVendas.br.com.projeto.view
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela de Login";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
